@@ -9,3 +9,6 @@ Dooblydoos used:
 - Replit
 - Spyder
 - Anaconda
+- Github
+     - CodeQL analysis
+- GPT 4o
