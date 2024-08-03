@@ -1,49 +1,22 @@
-import sys
-import time
+# main.py
+from typewriter import typewriter_effect
+from input_handler import get_player_choice
+from tutorial import tutorial
 
-# Flag to control whether input is accepted
-accepting_input = True
-
-# Function to type out text with a delay between characters
-def typewriter_effect(text, delay=0.05):
-    global accepting_input
-    accepting_input = False  # Disable input
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()
-    accepting_input = True  # Enable input
-
-# Function to handle player choices with input control
-def get_player_choice(choices):
-    while True:
-        if accepting_input:
-            choice = input("> ").strip().lower()
-            if choice in choices:
-                return choice
-            else:
-                typewriter_effect("Invalid choice. Try again.")
-        else:
-            time.sleep(0.1)  # Wait for a short period before checking again
-
-# Tutorial function
-def tutorial():
-    typewriter_effect("You will take part in a predominantly text-based game.")
-    typewriter_effect("You will be give n a scenario and options to choose from.")
-    typewriter_effect("You will type in the field your selection and enter f to continue.\n")
-    typewriter_effect("You will be given a scenario with specific target values. You will not overshoot these values.\n")
-
-# Main game function
 def main():
     # Get player name
     player_name = input("What is your name? ")
-    typewriter_effect(f"Welcome to my game, {player_name}")
+    typewriter_effect(f"Welcome to my game, {player_name}!")
     
     # Ask if the player wants to go through the tutorial
     yn_tutorial = input("Would you like to go through the tutorial? (y/n) ").strip().lower()
     if yn_tutorial == "y":
         tutorial()
+    elif yn_tutorial == "n":
+        pass
+    elif yn_tutorial not in ["y", "n"]:
+        typewriter_effect("Aren't you fuckin' special, eh?")
+        # exit() doesnt work yet
     
     # Main game loop
     typewriter_effect("You find yourself in a dark forest. What will you do?")
