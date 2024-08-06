@@ -1,6 +1,6 @@
 # **You Will**
 
-A simple normal Python text-based game
+A simple normal Python text-based game in progress
 Nothing to see here
 
 
