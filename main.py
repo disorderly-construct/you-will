@@ -1,29 +1,37 @@
 # main.py
 import sys
-from typewriter import typewriter_effect
+
 from input_handler import get_player_choice
-from tutorial import tutorial1
-from tutorial import tutorial2
+from tutorial import tutorial1, tutorial2
+from typewriter import typewriter_effect
+
 
 def main():
     # Get player name
     player_name = input("What is your name? ")
-    typewriter_effect(f"Welcome to the game, {player_name}.")
+    typewriter_effect(f"Welcome to You Will, {player_name}.\n")
+    typewriter_effect("This game will include graphic depictions of violence and lack of humanity. \n If at any time you wish to stop the experience, type 'stop'.")
     
     # Ask if the player wants to go through the tutorial
-    yn_tutorial = input("Would you like to go through the tutorial? (y/n) ").strip().lower()
+    yn_tutorial = input("Would you like to go through the tutorial? (y/n) \n").strip().lower()
     if yn_tutorial == "y":
         tutorial1()
         tutorial2()
     elif yn_tutorial == "n":
         pass
     elif yn_tutorial not in ["y", "n"]:
-        typewriter_effect("Aren't you fuckin' special, eh?")
+        typewriter_effect("No.")
         sys.exit("Goodbye")
     
     # Main game loop
-    typewriter_effect("You find yourself in a dark, cold stone cell. The exit door is hardly attached. You've gotta be committed. You're in a dungeon, after all. Unsure how you got here, but you feel a sense of purpose.\n")
-    typewriter_effect("You see a heavy, marred wodden door in front of you. You move through.\n")
+    typewriter_effect("")
+    # someone mumbles at the start as you meet the player, host, and authority figure. severely blackening room focusing in around player and host who has brown sack hood
+    # AF: You will begin now, {player_name}.}
+    # UI comes up, with categories of torture
+    # Unsure of what may come
+    # What have i done to bring this down on me
+    # There is nothing to attain
+    
     
     while True:
         typewriter_effect("Choices: [explore, rest, quit]")
